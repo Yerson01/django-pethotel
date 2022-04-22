@@ -1,8 +1,7 @@
-from django.contrib.auth.models import User
-from apps.core.models.mixins import TimestampMixin
+from apps.core.models import User
 
 
-class Customer(User, TimestampMixin):
+class Customer(User):
 
     class Meta:
         proxy = True

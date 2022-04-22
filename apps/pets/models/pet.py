@@ -1,8 +1,8 @@
 from django.db import models
-from apps.core.models.mixins import TimestampMixin
+from apps.core.models import TimestampMixin
 
 
-class Pet(models.Model, TimestampMixin):
+class Pet(TimestampMixin):
     class Meta:
         default_related_name = 'pets'
 

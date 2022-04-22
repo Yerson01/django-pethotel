@@ -1,8 +1,8 @@
 from django.db import models
-from apps.core.models.mixins import TimestampMixin
+from apps.core.models import TimestampMixin
 
 
-class Booking(models.Model, TimestampMixin):
+class Booking(TimestampMixin):
     class Status(models.TextChoices):
         BOOKED = 'booked', 'Booked'
         IN_PROGRESS = 'in_progress', 'In Progress'
