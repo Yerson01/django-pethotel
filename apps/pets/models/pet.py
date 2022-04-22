@@ -3,9 +3,6 @@ from apps.core.models import TimestampMixin
 
 
 class Pet(TimestampMixin):
-    class Meta:
-        default_related_name = 'pets'
-
     class Type(models.TextChoices):
         DOG = 'dog', 'Dog'
         CAT = 'cat', 'Cat'
@@ -18,10 +15,14 @@ class Pet(TimestampMixin):
         MEDIUM = 'medium', 'Medium'
         LARGE = 'large', 'Large'
 
+    class Meta:
+        db_table = 'pets'
+        default_related_name = 'pets'
+
     name = models.TextField(max_length=100)
     type = models.TextField(max_length=20, choices=Type.choices)
     size = models.TextField(max_length=20, choices=Type.choices)
-    owner = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    owner = models.ForeignKey('customers.Customer', on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s (%s)'.format(self.name, self.type)

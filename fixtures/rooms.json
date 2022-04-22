@@ -1,0 +1,18 @@
+[
+  {
+    "model": "lodging.room",
+    "pk": 1,
+    "fields": {
+      "room_number": 1,
+      "cost_per_night": "45.00"
+    }
+  },
+  {
+    "model": "lodging.room",
+    "pk": 2,
+    "fields": {
+      "room_number": 2,
+      "cost_per_night": "50.00"
+    }
+  }
+]

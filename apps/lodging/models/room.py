@@ -1,13 +1,12 @@
 from django.db import models
-from apps.core.models.mixins import TimestampMixin
 
 
-class Room(TimestampMixin):
+class Room(models.Model):
     class Meta:
+        db_table = 'rooms'
         default_related_name = 'rooms'
 
-
-    room_number = models.IntegerField(max_length=5)
+    room_number = models.IntegerField()
     cost_per_night = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
