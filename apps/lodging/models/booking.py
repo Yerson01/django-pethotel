@@ -16,8 +16,6 @@ class Booking(TimestampMixin):
 
     arrival_date = models.DateTimeField()
     departure_date = models.DateTimeField()
-
-    # invoice = models.ForeignKey('Invoice', on_delete=models.CASCADE)
     pet = models.ForeignKey('pets.Pet', on_delete=models.CASCADE)
     room = models.ForeignKey('Room', on_delete=models.CASCADE)
 
@@ -34,3 +32,7 @@ class Booking(TimestampMixin):
             return self.Status.IN_PROGRESS
 
         return self.Status.BOOKED
+
+    def pay_bill(self):
+        # TODO: Implement after create invoice model
+        raise NotImplementedError()

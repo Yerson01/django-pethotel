@@ -10,4 +10,5 @@ class Food(models.Model):
     class Meta:
         db_table = 'food'
 
+    # TODO: Add food model fields
 

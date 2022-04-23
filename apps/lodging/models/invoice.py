@@ -13,9 +13,7 @@ class Invoice(TimestampMixin):
         db_table = 'invoices'
         default_related_name = 'invoices'
 
-    customer = models.ForeignKey('customers.Customer', on_delete=models.CASCADE)
-    booking = models.ForeignKey('Booking', on_delete=models.CASCADE)
-    status = models.TextField(max_length=30, choices=Status.choices)
+    # TODO: Add Invoice model fields
 
 
 

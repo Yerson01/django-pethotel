@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,10 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework_jwt',
+
     'apps.core',
     'apps.customers',
     'apps.pets',
     'apps.lodging',
+
 ]
 
 MIDDLEWARE = [
@@ -76,6 +80,23 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+APPEND_SLASH = True
+
+# Rest Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': timedelta(hours=8),
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=7),
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

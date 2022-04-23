@@ -21,7 +21,7 @@ class Pet(TimestampMixin):
 
     name = models.TextField(max_length=100)
     type = models.TextField(max_length=20, choices=Type.choices)
-    size = models.TextField(max_length=20, choices=Type.choices)
+    size = models.TextField(max_length=20, choices=Size.choices)
     owner = models.ForeignKey('customers.Customer', on_delete=models.CASCADE)
 
     def __str__(self):

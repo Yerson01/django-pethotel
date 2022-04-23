@@ -7,7 +7,7 @@ from apps.customers.serializers import CustomerSerializer
 
 
 class CreateCustomerView(generics.CreateAPIView):
-    """Register a new user in system"""
+    """Register a new customer in the application"""
     serializer_class = CustomerSerializer
 
 
@@ -15,7 +15,7 @@ create_customer = CreateCustomerView.as_view()
 
 
 class ManageCustomerView(RetrieveModelMixin, UpdateModelMixin, GenericViewSet):
-    """Manage account of authenticated user"""
+    """Manage authenticated customer"""
     serializer_class = CustomerSerializer
     permission_classes = [permissions.IsAuthenticated]
 
